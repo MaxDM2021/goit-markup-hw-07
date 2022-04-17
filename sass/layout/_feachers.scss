@@ -9,6 +9,30 @@
     font-weight: normal;
     font-size: 14px;
     line-height: 1.71;
+
+    & p {
+      margin-top: 10px;
+      margin-bottom: 0px;
+    
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 1.71;
+    
+      letter-spacing: 0.03em;
+    }
+
+    & .item:not(:last-child) {
+      margin-right: 30px;
+      
+    }
+
+    & .item {
+      width: 270px;
+      height: 101px;
+    }
+
   }
   
   .features-list-link {
@@ -22,24 +46,7 @@
     justify-content: center;
   }
   
-  .feature-list p {
-    margin-top: 10px;
-    margin-bottom: 0px;
+
   
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.71;
+ 
   
-    letter-spacing: 0.03em;
-  }
-  
-  .feature-list .item:not(:last-child) {
-    margin-right: 30px;
-  }
-  
-  .feature-list .item {
-    width: 270px;
-    height: 101px;
-  }

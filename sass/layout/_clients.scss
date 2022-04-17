@@ -16,6 +16,12 @@
     transition-property: outline;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
+    &:hover,
+    &:focus {
+    outline: 1px solid var(--accent-color);
+  }
+  
   }
   
   .clients-list-icon {
@@ -24,15 +30,12 @@
     transition-property: fill;
     transition-duration: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+ 
+    .clients-list-link:hover &,
+    .clients-list-link:focus & {
+      fill: var(--accent-color);
+    }
   }
   
-  .clients-list-link:hover .clients-list-icon,
-  .clients-list-link:focus .clients-list-icon {
-    fill: var(--accent-color);
-  }
-  
-  .clients-list-link:hover,
-  .clients-list-link:focus {
-    outline: 1px solid var(--accent-color);
-  }
+
   

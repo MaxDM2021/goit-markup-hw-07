@@ -10,16 +10,16 @@
     opacity: 1;
     transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
       visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .backdrop.is-hidden {
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-  }
-  
-  .backdrop.is-hidden .modal {
-    transform: translate(-50%, -50%) scale(1.1);
+
+      &.is-hidden {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        & .modal {
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+      }
   }
   
   .modal {
@@ -42,8 +42,7 @@
     position: absolute;
     top: 8px;
     right: 8px;
-    display: flex;
-    align-items: center;
+  @extend %align;
     justify-content: center;
     width: 30px;
     height: 30px;
@@ -68,71 +67,55 @@
     padding: 0;
     font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    line-height: 1.15;
+    @include font (700, 20px, 23px, 0.03em);
+    // font-weight: 700;
+    // font-size: 20px;
+    // line-height: 1.15;
+    // letter-spacing: 0.03em;
     text-align: center;
-    letter-spacing: 0.03em;
+    
   }
+
+
   .form-field {
     display: flex;
     flex-direction: column;
     margin-bottom: 12px;
-  }
-  
-  .form-field label {
-    margin-bottom: 4px;
-    text-align: left;
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.01em;
-    color: var(--second-text-color);
-  }
-  
-  .form-field input {
-    width: 100%;
-    height: 40px;
-    margin: 0;
-    padding: 11px 42px;
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    background-color: #ffff;
-    cursor: pointer;
-  
-    transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  
-  .form-field input:hover,
-  .form-field input:focus {
-    outline: none;
-    border: 1px solid var(--accent-color);
-  }
-  
-  .input-svg {
-    position: relative;
-   
-  }
-  
-  .icon-form {
-    position: absolute;
-    top: 50%;
-    left: 12px;
-    transform: translateY(-50%);
+
+    & label {
+      margin-bottom: 4px;
+      text-align: left;
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      @include font (400, 12px, 14px, 0.01em);
+      // font-weight: 400;
+      // font-size: 12px;
+      // line-height: 1.17;
+      // letter-spacing: 0.01em;
+      color: var(--second-text-color);
+    }
+
+    & input {
+      width: 100%;
+      height: 40px;
+      margin: 0;
+      padding: 11px 42px;
+      border: 1px solid rgba(33, 33, 33, 0.2);
+      border-radius: 4px;
+      background-color: #ffff;
+      cursor: pointer;
     
-  
-    fill: var(--primary-text-color);
-    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+      &:hover,
+      &:focus {
+        outline: none;
+        border: 1px solid var(--accent-color);
+      }
+
   }
-  
-  .input-svg:hover .icon-form,
-  .input-svg:focus .icon-form {
-    fill: var(--accent-color);
-  }
-  
-  .form-field textarea {
+
+  & textarea {
     width: 100%;
     height: 120px;
     margin: 0;
@@ -144,38 +127,59 @@
   
     font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14;
-    letter-spacing: 0.01em;
+    @include font (400, 14px, 16px, 0.01em);
+    // font-weight: 400;
+    // font-size: 14px;
+    // line-height: 1.14;
+    // letter-spacing: 0.01em;
     color: rgba(117, 117, 117, 0.5);
     cursor: pointer;
   
     transition: border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+    &:hover,
+    &:focus {
+      outline: none;
+      border: 1px solid var(--accent-color);
+      color: var(--primary-text-color);
+    }
+  }
   }
   
-  .form-field textarea:hover,
-  .form-field textarea:focus {
-    outline: none;
-    border: 1px solid var(--accent-color);
-    color: var(--primary-text-color);
+  .input-svg {
+    position: relative;
   }
   
+  .icon-form {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    
+    fill: var(--primary-text-color);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .input-svg:hover &,
+    .input-svg:focus & {
+      fill: var(--accent-color);
+    }
+    
+  }
   
   .form-field-checkbox {
     margin-bottom: 30px;
   }
   
   .checkbox-label {
-    display: flex;
-    align-items: center;
+   @extend %align;
   
     font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.71;
-    letter-spacing: 0.03em;
+    @include font (400, 14px, 24px, 0.03em);
+    // font-weight: 400;
+    // font-size: 14px;
+    // line-height: 1.71;
+    // letter-spacing: 0.03em;
     color: var(--second-text-color);
     cursor: pointer;
   }
@@ -192,7 +196,6 @@
     overflow: hidden;
   }
   
-  
   .checkbox-icon {
     display: inline-block;
     margin-right: 8px;
@@ -200,19 +203,19 @@
     height: 15px;
     border: 2px solid var(--primary-text-color);
     border-radius: 4px;
-  }
-  
-  .checkbox:focus + .checkbox-icon {
-    outline: 2px solid var(--accent-color);
-  }
-  
-  
-  .checkbox:checked + .checkbox-icon {
-    background-color: var(--accent-color);
-    background-image: url(../img/iconcheck.svg);
-    background-size: contain;
-    background-origin: border-box;
-    border-color: var(--accent-color);
+
+    .checkbox:focus + & {
+      outline: 2px solid var(--accent-color);
+    }
+    
+    .checkbox:checked + & {
+      background-color: var(--accent-color);
+      background-image: url(../img/iconcheck.svg);
+      background-size: contain;
+      background-origin: border-box;
+      border-color: var(--accent-color);
+    }
+    
   }
   
   .contract {
@@ -220,8 +223,7 @@
   }
   
   .send-btn {
-    display: flex;
-    align-items: center;
+    @extend %align;
     border: none;
     margin-top: 0;
     margin-bottom: 0;
@@ -235,15 +237,18 @@
   
     font-family: "Roboto", sans-serif;
     font-style: normal;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.88;
+    @include font (700, 16px, 31px, 0.06em);
+    // font-weight: 700;
+    // font-size: 16px;
+    // line-height: 1.88;
+    // letter-spacing: 0.06em;
     color: var(--title-text-color);
-  
+    
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover,
+    &:focus {
+      background-color: var(--second-accent-color);
+    }
   }
   
-  .send-btn:hover,
-  .send-btn:focus {
-    background-color: var(--second-accent-color);
-  }

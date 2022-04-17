@@ -8,28 +8,27 @@
   
   .form-field-footer {
     display: flex;
-  }
-  
-  .form-field-footer input {
-    width: 358px;
-    height: 50px;
-    background-color: var(--primary-background-color);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
-  
-    font-family: "Roboto", sans-serif;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.25;
-    color: var(--title-text-color);
-    padding: 15px;
-    margin-right: 12px;
+
+    & input {
+      width: 358px;
+      height: 50px;
+      background-color: var(--primary-background-color);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 4px;
+    
+      font-family: "Roboto", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 1.25;
+      color: var(--title-text-color);
+      padding: 15px;
+      margin-right: 12px;
+    }
   }
   
   .subsribe-btn {
-    display: flex;
-    align-items: center;
+    @extend %align;
     border: none;
     width: 200px;
   

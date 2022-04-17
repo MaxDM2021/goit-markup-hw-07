@@ -4,21 +4,22 @@
     padding-bottom: 94px;
   }
   
-  
-  .section-img {
-    position: relative;
-    margin-top: 0;
-    padding: 0;
-  }
-  
   .section-list {
     display: flex;
     margin-top: 0;
     margin-bottom: 0;
   }
   
-  .section-list .section-img:not(:last-child) {
-    margin-right: 30px;
+  
+  .section-img {
+    position: relative;
+    margin-top: 0;
+    padding: 0;
+
+    .section-list &:not(:last-child) {
+      margin-right: 30px;
+    }
+
   }
   
   .box {

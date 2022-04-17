@@ -55,10 +55,12 @@
   .section-team {
     display: flex;
     flex-wrap: wrap;
+
+    & .persone:not(:last-child) {
+      margin-right: 30px;
+    }
   }
   
-  .section-team .persone:not(:last-child) {
-    margin-right: 30px;
-  }
+ 
   
   
